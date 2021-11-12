@@ -1,0 +1,53 @@
+{
+  "name": "react-antd",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@ant-design/icons": "^4.7.0",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "antd": "^4.16.13",
+    "env-cmd": "^10.1.0",
+    "react": "^17.0.2",
+    "react-api-codeby": "^1.0.5",
+    "react-dom": "^17.0.2",
+    "react-helmet": "^6.1.0",
+    "react-scripts": "4.0.3",
+    "web-vitals": "^1.0.1"
+  },
+  "scripts": {
+    "start": "set PORT=3010 && react-scripts start",
+    "start-macos": "PORT=3010 react-scripts start",
+    "build": "react-scripts --max_old_space_size=4096 build",
+    "after-build": "rm -rf after_build; mv build after_build",
+    "build:local": "env-cmd -f .env.local npm run-script build; npm run-script after-build",
+    "build:dev": "env-cmd -f .env.dev npm run-script build; npm run-script after-build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@reduxjs/toolkit": "^1.6.2",
+    "react-redux": "^7.2.6",
+    "react-router-dom": "^6.0.2",
+    "universal-cookie": "^4.0.4"
+  }
+}

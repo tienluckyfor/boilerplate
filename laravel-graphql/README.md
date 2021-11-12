@@ -1,6 +1,7 @@
 # setup project
 cp .env.example .env;
 composer install;
+php artisan migrate:refresh; php artisan passport:install; 
 
 # cache 
 php artisan lighthouse:clear-cache
