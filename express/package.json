@@ -6,7 +6,8 @@
     "start": "node ./bin/www",
     "migrate": "npx sequelize-cli db:migrate:undo:all; npx sequelize-cli db:migrate",
     "local": "NODE_ENV=.env.local node index.js",
-    "local-nodemon": "NODE_ENV=.env.local nodemon index.js"
+    "local-nodemon": "NODE_ENV=.env.local nodemon index.js",
+    "dev-nodemon": "NODE_ENV=.env.dev nodemon index.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",

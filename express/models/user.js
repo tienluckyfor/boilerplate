@@ -1,8 +1,8 @@
-// 'use strict';
+'use strict';
 const {Model} = require('sequelize');
 const jwt = require('jsonwebtoken');
-// const bcrypt = require('bcryptjs')
 const bcrypt = require("bcrypt");
+const env = require("config/env")
 
 module.exports = (sequelize, DataTypes) => {
     class User extends Model {
@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
 
         async generateAuthToken() {
             const user = this
-            const token = jwt.sign({user: user.toJSON()}, 'process.env.JWT_SECRET')
+            const token = jwt.sign({user: user.toJSON()}, env.JWT_SECRET)
             user.token = token
             await user.save()
             return token

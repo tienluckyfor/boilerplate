@@ -4,10 +4,8 @@ const router = express.Router();
 const Joi = require('joi');
 const bcrypt = require("bcrypt");
 const asyncHandler = require('express-async-handler')
-const authentication = require('middleware/auth')
 const {joiValidation} = require("helpers/errorHandle")
 const {printData} = require("helpers/dataHandle")
-
 const User = require("models").User
 
 router.post('/auth/register', asyncHandler(async (request, response) => {
