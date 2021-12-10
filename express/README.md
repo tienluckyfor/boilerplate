@@ -12,3 +12,6 @@ npx sequelize-cli db:migrate:undo:all
 
 npx sequelize-cli seed:generate --name demo-user
 npx sequelize-cli db:seed:all
+
+# copy
+cp -fR /Users/phuocnguyen/Jobs/boilerplate/express/*  /Users/phuocnguyen/Jobs/codeby.com/mockapi/storageCodeby

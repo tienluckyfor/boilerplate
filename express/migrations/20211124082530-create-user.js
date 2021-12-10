@@ -13,11 +13,11 @@ module.exports = {
       },
       phone: {
         type: Sequelize.STRING,
-        // unique: true
+        unique: true
       },
       email: {
         type: Sequelize.STRING,
-        // unique: true
+        unique: true
       },
       password: {
         type: Sequelize.STRING

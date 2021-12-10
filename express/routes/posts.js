@@ -1,11 +1,11 @@
 var express = require('express');
 var router = express.Router();
+const Joi = require('joi');
 const asyncHandler = require('express-async-handler')
 const authentication = require('middleware/auth')
-const Joi = require('joi');
 const {joiValidation} = require("helpers/errorHandle")
-const {printData} = require("helpers/dataHandle")
 const Post = require("models").Post
+const User = require("models").User
 
 router.post('/posts', authentication, asyncHandler(async (request, response) => {
     joiValidation(request, response, {
@@ -13,16 +13,12 @@ router.post('/posts', authentication, asyncHandler(async (request, response) => 
         description: Joi.string().required(),
     })
     const {user, body} = request
-    const post = await Post.create({user_id: user.id, ...body}, {
-        include: ['user'],
-
+    const create = await Post.create({user_id: user.id, ...body})
+    const post = await Post.findOne({
+        include: {model: User, as: 'user', attributes: {exclude: ['password', 'token']}},
+        where: {id: create.id}
     })
-    const pp = await Post.findOne({
-        include: ['user'],
-        where: {id: post.id}
-    })
-    // printData(response, post)
-    printData(response, pp)
+    response.send(post)
 }))
 
 module.exports = router;

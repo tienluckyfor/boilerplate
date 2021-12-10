@@ -3,6 +3,7 @@ const {Model} = require('sequelize');
 const jwt = require('jsonwebtoken');
 const bcrypt = require("bcrypt");
 const env = require("config/env")
+var _ = require('lodash');
 
 module.exports = (sequelize, DataTypes) => {
     class User extends Model {
@@ -16,8 +17,9 @@ module.exports = (sequelize, DataTypes) => {
         }
 
         async generateAuthToken() {
-            const user = this
-            const token = jwt.sign({user: user.toJSON()}, env.JWT_SECRET)
+            const user = this;
+            const arrToken = _.omit(user.toJSON(), ['token', 'updatedAt'])
+            const token = jwt.sign(arrToken, env.JWT_SECRET)
             user.token = token
             await user.save()
             return token
@@ -47,10 +49,5 @@ module.exports = (sequelize, DataTypes) => {
         modelName: 'User',
     });
 
-    User.prototype.toJSON = function () {
-        let values = Object.assign({}, this.get());
-        delete values.password;
-        return values;
-    }
     return User;
 };
