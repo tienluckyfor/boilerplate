@@ -64,7 +64,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"phone\":\"1e1xa1m1p1111le@example.com\",\n    \"password\": \"88888888!@1\"\n}",
+							"raw": "{\n    \"phone\":\"1234567118\",\n    \"password\": \"88888888!@\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -127,43 +127,6 @@
 					"response": []
 				}
 			]
-		},
-		{
-			"name": "{{base_url}}/auth",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer {{token}}",
-						"type": "text"
-					},
-					{
-						"key": "Accept",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"phone\":\"1e1xa1m1p1111le@example.com\",\n    \"password\": \"88888888!@1\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{base_url}}/auth",
-					"host": [
-						"{{base_url}}"
-					],
-					"path": [
-						"auth"
-					]
-				}
-			},
-			"response": []
 		}
 	]
 }
