@@ -30,6 +30,7 @@ import {
     ShoppingCartIcon
 } from '@heroicons/react/outline'
 import Select from "./components/Select";
+import Sidebar from "./components/Sidebar";
 
 const user = {
     name: 'Whitney Francis',
@@ -370,8 +371,8 @@ export default function Example() {
                 <div className="min-h-0 flex-1 flex overflow-hidden">
                     {/* Narrow sidebar*/}
                     <nav aria-label="Sidebar"
-                         className="hidden md:block md:flex-shrink-0 md:bg-gray-800 md:overflow-y-auto">
-                        <div className="relative w-20 flex flex-col p-3 space-y-3">
+                         className="hidden md:block md:flex-shrink-0  md:overflow-y-auto w-56">
+                        {/*<div className="relative w-20 flex flex-col p-3 space-y-3">
                             {sidebarNavigation.map((item) => (
                                 <a
                                     key={item.name}
@@ -385,7 +386,8 @@ export default function Example() {
                                     <item.icon className="h-6 w-6" aria-hidden="true"/>
                                 </a>
                             ))}
-                        </div>
+                        </div>*/}
+                        <Sidebar/>
                     </nav>
 
                     {/* Main area */}
@@ -398,18 +400,18 @@ export default function Example() {
                             <h1 id="primary-heading" className="sr-only">
                                 Home
                             </h1>
-                            {/* Your content */}
+                             Your content
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aperiam autem culpa delectus dicta doloremque esse harum illo magni neque numquam, quam quasi quia recusandae repellendus saepe sed. In, quia?
                         </section>
 
                         {/* Secondary column (hidden on smaller screens) */}
-                        <aside className="hidden lg:block lg:flex-shrink-0 lg:order-first">
+                        {/*<aside className="hidden lg:block lg:flex-shrink-0 lg:order-first">
                             <div
                                 className="h-full relative flex flex-col w-96 border-r border-gray-200 bg-gray-100 overflow-y-auto">
-                                {/* Your content */}
+                                 Your content
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ex minima minus? Deserunt dignissimos, dolor doloribus nam nisi odio possimus quae quidem reiciendis voluptate? Iste neque numquam omnis pariatur quam.
                             </div>
-                        </aside>
+                        </aside>*/}
                     </main>
                 </div>
             </div>
