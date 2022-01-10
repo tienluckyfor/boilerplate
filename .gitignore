@@ -2,3 +2,4 @@
 /express/node_modules/
 .idea
 /express-ejs/node_modules/
+/express-sequelize/node_modules/

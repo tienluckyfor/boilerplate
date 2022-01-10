@@ -11,4 +11,7 @@ cp -fR /Users/phuocnguyen/Jobs/boilerplate/react-antd/* $(pwd)
 ## express-ejs
 cp -fR /Users/phuocnguyen/Jobs/boilerplate/express-ejs/* $(pwd)
 
+## react-tailwindui
+cp -fR /Users/phuocnguyen/Jobs/boilerplate/react-tailwindui/* $(pwd)
+
 

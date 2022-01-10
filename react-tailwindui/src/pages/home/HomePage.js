@@ -3,7 +3,7 @@ import React from "react";
 
 const HomePage = () => {
     return <MasterLayout>
-        <p className="">
+        <p className="text-[#ccc] text-black">
             src/pages/HomePage.js
         </p>
     </MasterLayout>

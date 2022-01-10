@@ -50,3 +50,5 @@ query {
 }
 ```
 
+# copy
+cp -fR /Users/phuocnguyen/Jobs/boilerplate/laravel-graphql/*  /Users/phuocnguyen/Jobs/codeby.com/mockapi/siteCodeby
