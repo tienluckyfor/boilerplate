@@ -1,0 +1,126 @@
+<link rel="stylesheet" href="assets/css/tailwind-output.css" />
+
+<!-- input-border -->
+<label class="block">
+  <span class="block">input-border</span>
+  <input
+    type="text"
+    class="border border-gray-400 h-10 w-full px-3 mt-2 rounded"
+    placeholder="input 1"
+  />
+</label>
+
+<!-- input-border-b -->
+<label class="block">
+  <span class="block">input-border-b</span>
+  <input
+    type="text"
+    class="border-b border-gray-400 h-10 w-full pr-3 mt-2"
+    placeholder="input 2"
+  />
+</label>
+
+<!-- input-border-icon -->
+<label class="block">
+  <span class="block">input-border-icon</span>
+  <span
+    class="border border-gray-400 mt-2 rounded block overflow-hidden relative"
+  >
+    <i class="material-icons absolute absolute-y ml-3 text-gray-500">search</i>
+    <input
+      type="text"
+      class="h-10 w-full pr-3 pl-10"
+      placeholder="Input 3"
+    />
+  </span>
+</label>
+
+<!-- input-border-b-icon -->
+<label class="block">
+  <span class="block">input-border-b-icon</span>
+  <span
+    class="border-b border-gray-400 mt-2 block overflow-hidden relative"
+  >
+    <i class="material-icons absolute absolute-y text-gray-500"
+      >search</i
+    >
+    <input
+      type="text"
+      class="h-10 w-full pr-3 pl-8"
+      placeholder="input 4"
+    />
+  </span>
+</label>
+
+<!-- input-border-2 -->
+<label class="block">
+  <span class="block">input-border-2</span>
+  <span
+    class="border-2 border-gray-400 mt-2 rounded-md block overflow-hidden relative"
+  >
+    <i class="material-icons absolute absolute-y ml-3 text-gray-500">search</i>
+    <input
+      type="text"
+      class="h-10 w-full pr-3 pl-10 outline-none bg-gray-100"
+      placeholder="input 5"
+    />
+  </span>
+</label>
+
+<!-- input-border-b-2 -->
+<label class="block">
+  <span class="block">input-border-b-2</span>
+  <span
+    class="border-b-2 border-gray-400 mt-2 block overflow-hidden relative"
+  >
+    <i class="material-icons absolute absolute-y text-gray-500"
+      >search</i
+    >
+    <input
+      type="text"
+      class="h-10 w-full pr-3 pl-8 outline-none"
+      placeholder="input-border-b-2"
+    />
+  </span>
+</label>
+
+<!-- input-border-2-alpinejs -->
+<label class="block relative" x-data="{focus: false, value:''}">
+  <span
+    :class="{'-translate-y-5 text-indigo-700 text-sm': focus||value.length}"
+    class="block absolute mx-1 px-2 top-0 mt-4 bg-white duration-200 ease-in-out transform"
+    >input-border-2-alpinejs</span
+  >
+  <input
+    x-model="value"
+    :class="{'border-blue-500': focus||value.length}"
+    x-on:focus="focus=true"
+    x-on:focusout="focus=false"
+    type="text"
+    class="border-2 border-gray-400 h-10 w-full px-3 mt-2 rounded outline-none"
+    placeholder="input-border-2-alpinejs"
+  />
+</label>
+
+<!-- input-border-b-2-alpinejs -->
+<label class="block relative" x-data="{focus: false, value:''}">
+  <span
+    :class="{'-translate-y-5 text-indigo-700 text-sm': focus||value.length}"
+    class="block absolute top-0 mt-4 bg-white duration-200 ease-in-out transform"
+    >input-border-b-2-alpinejs</span
+  >
+  <span
+    :class="{'w-full' : focus}"
+    class="absolute left-0 right-0 bottom-0 border-b-2 border-blue-500 w-0 duration-200 ease-in-out transform"
+  >
+  </span>
+  <input
+    x-model="value"
+    :class="{'border-blue-500': focus||value.length}"
+    x-on:focus="focus=true"
+    x-on:focusout="focus=false"
+    type="text"
+    class="border-b-2 border-gray-400 h-10 w-full mt-2 outline-none"
+    placeholder="input-border-b-2-alpinejs"
+  />
+</label>

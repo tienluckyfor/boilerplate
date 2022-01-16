@@ -1,0 +1,51 @@
+<!-- slider setup -->
+<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+<!-- slider dots -->
+<style>
+    .flickity-page-dots {
+        bottom: 10px;
+    }
+
+    .flickity-page-dots .dot {
+        border: solid 1px #fff;
+    }
+
+    .flickity-page-dots .dot.is-selected {
+        background: white;
+    }
+</style>
+<div class="main-carousel" data-flickity='{ "prevNextButtons": false }'>
+    <?php for($i=1; $i<=10; $i++){?>
+    <!-- image 4x1 -->
+    <figure class="flex items-center carousel-cell w-full">
+        <div class="w-full">
+            <div class="pb-4x1 relative rounded-sm overflow-hidden bg-gray-300">
+                <img alt="" src="https://picsum.photos/300" class="absolute h-full w-full object-cover">
+            </div>
+        </div>
+    </figure>
+    <?php }?>
+</div>
+
+<!-- slider button -->
+<style>
+    .flickity-prev-next-button {
+        width: 34px;
+        height: 34px;
+    }
+</style>
+<ul data-flickity='{ "pageDots": false, "contain": true }' class="font-semibold text-white ">
+    <?php for ($i = 1; $i <= 10; $i++) {
+        $arr = ['blue', 'red', 'gray', 'yellow'];
+        ?>
+    <li class="carousel-cell w-48  h-16 <?= $i == 1 ? '' : 'ml-2' ?>">
+        <a href="#" class="inline-block">
+            <span class="w-48 h-16 flex items-center justify-center bg-<?= $arr[array_rand($arr, 1)] ?>-500 ">
+                Quạt mát
+            </span>
+        </a>
+    </li>
+    <?php } ?>
+</ul>

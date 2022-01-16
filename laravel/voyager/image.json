@@ -1,0 +1,17 @@
+{
+    "resize": {
+        "width": "1000",
+        "height": null
+    },
+    "quality": "90%",
+    "upsize": true,
+    "thumbnails": [
+        {
+            "name": "small",
+            "crop": {
+                "width": "300",
+                "height": "300"
+            }
+        }
+    ]
+}

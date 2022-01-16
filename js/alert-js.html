@@ -1,0 +1,28 @@
+<!-- sweetalert2 -->
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <script>
+        Swal.fire('Hello world!');
+        Swal.fire('Oops...', 'Something went wrong!', 'error');
+        Swal.fire('Oops...', 'Something went wrong!', 'warning');
+        Swal.fire('', 'Success', 'success');
+        Swal.fire({
+            type: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!',
+            footer: '<a href>Why do I have this issue?</a>'
+        });
+    </script>
+</body>
+
+
+<!-- alertify -->
+
+<body>
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+    <script>
+        alertify.alert('Alert Message!');
+    </script>
+</body>

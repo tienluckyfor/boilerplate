@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-database.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyB4RuwkiUP6T7Cbwu9FNrqiROLFmL73GAQ",
+            authDomain: "test-firebase-js.firebaseapp.com",
+            databaseURL: "https://test-firebase-js.firebaseio.com",
+            projectId: "test-firebase-js",
+            storageBucket: "test-firebase-js.appspot.com",
+            messagingSenderId: "861663302660",
+            appId: "1:861663302660:web:0e69cd2ffbdf1e3a479151"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+    <script>
+        function writeData() {
+            firebase.database().ref("User").set({
+                name: document.getElementById("nameField").value,
+                age: document.getElementById("ageField").value,
+            })
+            getData()
+        }
+        function getData() {
+            firebase.database().ref("/").once('value', function (snapshot) {
+                snapshot.forEach(function (childSnapshot) {
+                    var childKey = childSnapshot.key
+                    var childData = childSnapshot.val()
+                    document.getElementById("data").innerHTML = childData['name'] + ', ' + childData['age']
+                })
+            })
+        }
+        getData()
+    </script>
+</head>
+
+<body>
+    <h1>User Database</h1>
+    <input type="text" id="nameField" placeholder="name">
+    <input type="number" id="ageField" placeholder="age">
+    <button onclick="writeData()">Submit</button>
+    <p id="data"></p>
+</body>
+
+</html>

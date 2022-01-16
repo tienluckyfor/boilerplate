@@ -1,0 +1,19 @@
+<!-- Production -->
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<script>
+    const instance = tippy(document.querySelectorAll("[data-game]")[0], {
+        allowHTML: true,
+        maxWidth: 'none',
+        onShow(instance) {
+            let game = $(instance.reference).data('game');
+            console.log('game', game);
+
+            let html = ``;
+            html += `<h3 class="border-bottom ">${game.name}</h3>`;
+            html += `<p>${game.description}</p>`;
+            instance.setContent(html);
+        }
+    });
+    instance.show();
+</script>

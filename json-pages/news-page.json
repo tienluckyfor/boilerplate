@@ -1,0 +1,31 @@
+{
+    "seo": {
+        "title": "Tin tức 24h mới nhất, tin nhanh, tin nóng hàng ngày | Báo Thanh Niên",
+        "description": "Tin tức 24h, đọc báo TN cập nhật tin nóng online Việt Nam và thế giới mới nhất trong ngày, tin nhanh thời sự, chính trị, xã hội hôm nay, tin tức chính thống VN",
+        "image": "https://static.thanhnien.vn/v2/App_Themes/images/logo-tn-2.png",
+    },
+    "menus": [
+        "Tìm kiếm",
+        "Bạn cần biết",
+        "Liên hệ",
+        "Đăng nhập"
+    ],
+    "categories": [
+        "Thời sự",
+        "Chính trị",
+        "Pháp luật",
+        "Dân sinh",
+        "Lao động - Việc làm"
+    ],
+    "posts": [
+        {
+            "title": "Văn Toàn và món quà cưới đặc biệt bạn cùng phòng Công Phượng",
+            "contents": [
+                {
+                    "content": "",
+                    "images": []
+                }
+            ]
+        }
+    ]
+}

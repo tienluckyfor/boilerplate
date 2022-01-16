@@ -1,0 +1,17 @@
+<!-- npm i qrcode-generator -->
+<div id="placeHolder"></div>
+<style>
+    #placeHolder img {
+        width: 20rem;
+        height: 20rem;
+    }
+</style>
+<script src="/node_modules/qrcode-generator/qrcode.js"></script>
+<script>
+    var typeNumber = 6;
+    var errorCorrectionLevel = 'L';
+    var qr = qrcode(typeNumber, errorCorrectionLevel);
+    qr.addData(`${window.location.origin}/users?v=register&referred={{$user['username']}}`);
+    qr.make();
+    document.getElementById('placeHolder').innerHTML = qr.createImgTag();
+</script>

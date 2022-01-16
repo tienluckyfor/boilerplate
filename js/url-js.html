@@ -1,0 +1,12 @@
+<script>
+    // getURL
+    function getURL(str) {
+        var v = window.location.search.match(new RegExp('(?:[\?\&]' + str + '=)([^&]+)'));
+        v = v ? v[1] : null;
+        v = v.replace(/\+/g, ' ')
+        return v;
+    }
+
+    // get paramater
+    let access_token = (new URL(window.location.href)).searchParams.get('access_token');
+</script>

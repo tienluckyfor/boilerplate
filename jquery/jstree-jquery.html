@@ -1,0 +1,27 @@
+// cdn jquery
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
+
+<div id="html1">
+    <ul>
+        <li>Root node 1
+            <ul>
+                <li>Child node 1</li>
+                <li><a href="#">Child node 2</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<script>
+    $('#html1').jstree({
+        "core": {
+            "themes": {
+                "icons": false
+            }
+        }
+    });
+    $('#html1').on('select_node.jstree', function (e, data) {
+        data.instance.toggle_node(data.node);
+    });
+</script>

@@ -1,0 +1,35 @@
+<!-- production -->
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.3.5/dist/alpine.min.js" defer></script>
+
+<script>
+    var url = `https://test.tongluc.com`;
+    function postsLoad() {
+        return {
+            // other default properties
+            isOpenSlider: false,
+            isLoading: true,
+            posts: null,
+            sliderContents: [],
+            fetchPosts() {
+                this.isLoading = true;
+                fetch(`https://test.tongluc.com/wp-json/wp/v2/posts?_embed`)
+                    .then(res => res.json())
+                    .then(data => {
+                        // data = [data[0]];
+                        this.isLoading = false;
+                        data.forEach(function (post, key) {
+                            post.contents = post.content.rendered.split('<p>');
+                            post.contents = post.contents.filter(e => e.length);
+                            // post.isOpenSlider = false;
+                            data[key] = post;
+                        });
+                        console.log(data);
+                        this.posts = data;
+                    });
+            }
+        }
+    }
+</script>
+<div x-data="postsLoad()" x-init="fetchPosts()">
+
+</div>

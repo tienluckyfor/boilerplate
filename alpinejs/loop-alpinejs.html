@@ -1,0 +1,8 @@
+<!-- production alpinejs -->
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.3.5/dist/alpine.min.js" defer></script>
+
+<div x-data="{}">
+    <template x-for="(item, index) in [ ...Array(10) ]" :key="index">
+        <div x-text="index"></div>
+    </template>
+</div>

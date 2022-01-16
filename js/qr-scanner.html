@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style type="text/css">
+    :root {
+        --color-dot: #7aca51;
+    }
+
+    #video {
+        width: 100%;
+        display: none;
+    }
+
+    #content {
+        padding: 1em 1em;
+        /*background: #fff;*/
+        /*position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;*/
+    }
+
+    #content #dot {
+        margin: 3em auto;
+        width: 40px;
+        height: 40px;
+        border-radius: 100%;
+        border: 5px solid var(--color-dot);
+        border-right-color: transparent;
+        animation: rotat 2s infinite;
+    }
+
+    @keyframes rotat {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+
+<body>
+    <div id="wrap">
+        <div id="ctArea">
+            <h1>qr_code_scan</h1>
+            <div id="content">
+                <div id="dot"></div>
+                <video id="video"></video>
+            </div><!-- #content -->
+        </div><!-- /ctArea -->
+    </div>
+
+</html>
+<!-- cdn jquery  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/@zxing/library@latest"></script>
+<script src="https://rawgit.com/carlo/jquery-base64/master/jquery.base64.min.js"></script>
+<script type="text/javascript">
+    window.addEventListener('load', function () {
+        let selectedDeviceId;
+        const codeReader = new ZXing.BrowserQRCodeReader()
+        console.log('ZXing code reader initialized')
+        codeReader.getVideoInputDevices()
+            .then((videoInputDevices) => {
+                // camera = navigator.userAgent.match(/(iPod|iPhone|iPad)/) ? 0 : videoInputDevices.length-1;
+                if (navigator.userAgent.match(/(iPod|iPhone|iPad)/gim)) {
+                    camera = 1
+                    $.each(videoInputDevices, function (key, val) {
+                        if (val.label == 'Video source 0')
+                            camera = key
+                    });
+                }
+                else {
+                    camera = videoInputDevices.length - 1;
+                }
+                selectedDeviceId = videoInputDevices[camera].deviceId
+                codeReader.decodeFromInputVideoDevice(selectedDeviceId, 'video').then((result) => {
+                    console.log('result', result)
+                }).catch((err) => {
+                    console.error(err);
+                })
+
+                console.log(`Started continous decode from camera with id ${selectedDeviceId}`)
+                $('#dot').hide();
+                $('#video').show();
+            })
+            .catch((err) => {
+                console.error(err)
+            })
+    })
+</script>
