@@ -28,7 +28,7 @@ git clone https://tienluckyfor@github.com/tienluckyfor/mockapi.git
 git remote add origin https://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@github.com/tienluckyfor/laravel-api.git
 
 git remote set-url origin https://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@github.com/tienluckyfor/boilerplate.git
-
+ 
 git clone https://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@github.com/tienluckyfor/package.git
 
 git clone https://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@github.com/CloudOpsby/oriico-fe.git
