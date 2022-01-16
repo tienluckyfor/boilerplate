@@ -3,3 +3,6 @@
 .idea
 /express-ejs/node_modules/
 /express-sequelize/node_modules/
+/artillery-ddos/node_modules
+/grunt/node_modules
+/json-server/node_modules

@@ -1,0 +1,24 @@
+# check linux version
+// check apache
+httpd -v
+// check nginx
+nginx -v
+// check ubuntu
+lsb_release -a
+
+# restart Apache cPanel
+/scripts/restartsrv_httpd --start
+
+# create dir
+mkdir -p -m 777 /var/www/html/dienminhphu.com/public_html
+
+# add ssh
+// get ssh key from macos:
+ssh-keygen -t rsa
+pbcopy < ~/.ssh/id_rsa.pub
+vi ~/.ssh/authorized_keys
+
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCUNJtsx6wdERn75cZ4pZ3fSWLj0UhSalGEXUCs3PaPfaoAqqoZzf3btjdUNSV2DSsLDYCnyBLtS6UV0CQTRB2+NTr/aWmAk3Wduz3vKMclilOP+iv3/6ifq4orGKDuVrRWWaY6eF/i0RDhIBBFZawmVpdxb+6BoYDn4WhVwDQ0WEk+LSAUaxu1kNaMEt6gEbhbRoBj/jsROkTahKG5WzBl44xJkj1ChcCzJzRZhSTCdChVFe+WuN7ZUcluX5hsCVttClaksbjE89Gk11CohmWzL5qpraU6ccVUOxCz8wmwQ3JJlSA4+D0giGIEDA8c/XuMtJu1k+GhrKdxBB05zk2VR3KhOXpJb3ym01XrGpnAUJamjLXHAJlQYF/ZPZd2/yT1BGnv1DAGahT6MlWKJu5dWnTbGGR49M7ByJvAiufp2wZmcpCRftWDSb5BNcgmRDUaiB+gTDz94lGU6Opkqbo0tkiDBrIs/onev8T1RHpMTCS/YNXEJ09YQQUYfNST3IU= phuocnguyen@phuocs-MacBook-Pro.local
+
+
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDgkJymMO1N+1XgDx2FjCzOnNoMY6MOcixF6Q2nkMwD7ktdF8C5S5VuVFX7PG+h27yqYfTSwwa+PIiyZuF7bvRqrPL6wxfsCe/akG7xngJQ4IJfyBtW0tnZZNdk/TCbBSPBthgY5Qze+NUCB/jgYD/FKQiyqW8V5+nouavaVxq8GMxTyW71Mmxbf0qsLoMDXsQsuAD+6rE4u5mjC00JELrkAsPZ1YF9l7ilj2JGZVRKNvJGmzF7o4aqMzpTQz/bi4GtXzFTsZ1WDRx1pAQGmJ28ZySvtWvKycN0xRc1MeY04IwWLGuZLB+0ugPeLl++ttJphecm3OXJ3nB/A+MD3s4wcTmjZ3Z8tuMup0WSizz+1fAVYjJTR3+YnW3bNOGghw7V6lVNLjpYH58qpYJU1Q4+gxTZ2TbAKSSot2kIK+2a1011BRn9JMg+NTDgd8Xkc+VbaYFOn178T2Q4Vp2cbyvwqETALuoeZNwfmmA38TUhKmDw4vOneQqXJPzh9rSUUbc= admin@PC

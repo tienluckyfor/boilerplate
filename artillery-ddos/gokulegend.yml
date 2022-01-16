@@ -1,0 +1,24 @@
+config:
+  target: "https://gokulegend.com"
+  phases:
+    - duration: 1
+      arrivalRate: 1
+  processor: "./ngrok.js"
+scenarios:
+  - name: "1"
+    flow:
+      - function: "generateRandomData"
+      - post:
+          url: "/login/?v={{password}}"
+          headers:
+            XSRF-TOKEN: "eyJpdiI6IjUrcUkzVXB6b3F3WmdUNEZIWVVSVlE9PSIsInZhbHVlIjoicVJtbFdOWVFFelhGc1VUZmtUSHJ6a20zMjFrQjA0QmZCY3ErdndIMU5xc0NOVWxNY3podlVnOTlETFhTYVJkZSIsIm1hYyI6IjViZGY4NzY2ZDhlMDY2N2MxODc3OTZhZjVkOTFhZDE5OGFjYmRmZDhlNjZkZWRlYzAyZjMwNDEzMGIxN2E1M2EifQ"
+          cookie:
+            saved: "tapir,sloth"
+            XSRF-TOKEN: "eyJpdiI6ImxPNis4U0NiTS92anhNS2ZsRitQNFE9PSIsInZhbHVlIjoicmhuVWNVZnpOYjl2bWNzSHdOY1ZjYlU5eXQ2MVA1VVZ5aktxRWhldVNDN3BJTzZac3dqQnU5M0pxazZTVStKSyIsIm1hYyI6ImFjYzM4MDA1Mjg3Y2U2MzRiNDI0YmVkZTE0NzEzYmQzM2Y3ODkyZDk4OTExYmUyZmNhZTk0NTQ0NmFjZjcwOWUifQ%3D%3D"
+            laravel_session: "eyJpdiI6IndnOXlNSzU3UHNLZ3dURVhvNVJGN3c9PSIsInZhbHVlIjoiZjdrRUVzVVRDVC9pWER0cDFJTTVTNmZraUlaRFViOHROZHZXWkVzZTJ4K0tsMnJqaXRta3VRUTROeW94V1FDYyIsIm1hYyI6ImZjZWE2ZmEyM2EyNjgwY2U3ZDhkOWFhNTlmMzc1Y2EyYzFhNzU5MmQyNjczMGZhY2E4YTg2YjdiZDJlMGE0YTQifQ%3D%3D"
+          json:
+            _token: "2hGHGn4CFnPzYwLeTRcAmKixDJ1wINlI0ykkKEAJ"
+            username: "{{ name }}"
+            # email: "{{ email }}"
+            password: "{{ password }}"
+      - log: "Sent a request to /login/?v={{password}} with {{ name }}, {{ password }}"
