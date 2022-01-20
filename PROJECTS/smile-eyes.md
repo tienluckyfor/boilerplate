@@ -17,7 +17,8 @@ cd /var/www/smile-eyes-be; git pull origin sjp;
 cd /var/www/smile-eyes-fe; git pull origin sjp; npm i --legacy-peer-deps; npm run build; npm run after-build;
 
 git remote set-url origin https://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@github.com/PPEProjects/bash-script.git
-git clone https://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@github.com/PPEProjects/smile-eye-be.git
+git clone https://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@github.com/PPEProjects/ppe-core.git
+
 
 # https://stag.ppe.edu.vn
 # https://stag-be.ppe.edu.vn

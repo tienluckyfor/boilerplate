@@ -31,5 +31,8 @@ git remote set-url origin https://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@githu
  
 git clone https://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@github.com/tienluckyfor/package.git
 
-git clone https://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@github.com/CloudOpsby/oriico-fe.git
+git clone https://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@github.com/CloudOpsby/oriico-fe.git
 git clone https://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@github.com/CloudOpsby/oriico-be.git
+
+
+git remote set-url origin  https://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@github.com/tienluckyfor/mockapi.git

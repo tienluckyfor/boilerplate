@@ -26,8 +26,8 @@ cp -fR /Users/phuocnguyen/Jobs/codeby/init-projects/init-react-graphql-github-ap
 cp -fR /var/www/jp.smile-eye-be/public/basic.example/ /var/www/html
 cp -fR /Users/phuocnguyen/Jobs/resource/* /Users/phuocnguyen/Jobs/boilerplate-resource  
 # kill port
-sudo lsof -i :8080
-kill -9 699
+sudo lsof -i :3001
+kill -9 37435
 
 ps -fA | grep python
 501 90458 90452   0 10:23PM ttys006    0:00.00 grep python
