@@ -1,8 +1,8 @@
-import {BrowserRouter, Routes, Route,} from "react-router-dom"
-import React, {useEffect} from "react"
-import {authRoutes} from "pages/auth/authRoutes";
-import {homeRoutes} from "pages/home/homeRoutes";
-import {rdRoutes} from "./pages/rd/rdRoutes";
+import React from 'react';
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {draftRoutes} from "./pages-draft/draftRoutes";
+import {homeRoutes} from "./pages/home/homeRoutes";
+import {authRoutes} from "./pages/auth/authRoutes";
 
 function App() {
     return (
@@ -11,9 +11,9 @@ function App() {
                 <React.Suspense fallback={<div>Loading...</div>}>
                     <Routes>
                         {[
-                            ...rdRoutes,
+                            ...draftRoutes,
+                            ...homeRoutes,
                             ...authRoutes,
-                            ...homeRoutes
                         ].map((props, key) => <Route key={key} {...props} />)}
                     </Routes>
                 </React.Suspense>
