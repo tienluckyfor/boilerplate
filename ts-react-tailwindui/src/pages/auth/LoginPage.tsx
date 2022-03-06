@@ -1,7 +1,7 @@
 import * as React from "react";
 import {Link} from "react-router-dom";
 import AuthLayout from "layouts/AuthLayout";
-import TextField from "components/Shared/Fields/Text";
+import {TextField} from "components";
 import useLogin from "./useLogin";
 
 const RegisterPage: React.FC<{}> = () => {

@@ -38,7 +38,6 @@ res.send(products)
 });
 
 app.get("/", async (req, res) => {
-    console.log('1')
     // This shop hasn't been seen yet, go through OAuth to create a session
     if (ACTIVE_SHOPIFY_SHOPS[SHOP] === undefined) {
         // not logged in, redirect to login
@@ -58,6 +57,7 @@ app.get('/login', async (req, res) => {
         '/auth/callback',
         false,
     );
+    console.log('authRoute', authRoute)
     return res.redirect(authRoute);
 });
 
@@ -69,13 +69,13 @@ app.get('/auth/callback', async (req, res) => {
             req.query as unknown as AuthQuery,
         ); // req.query must be cast to unkown and then AuthQuery in order to be accepted
         ACTIVE_SHOPIFY_SHOPS[SHOP] = session.scope;
-        console.log(session.accessToken);
     } catch (error) {
         console.error(error); // in practice these should be handled more gracefully
     }
+    return res.redirect(`/products`); // wherever you want your user to end up after OAuth completes
     return res.redirect(`/?host=${req.query.host}&shop=${req.query.shop}`); // wherever you want your user to end up after OAuth completes
 });
 
 app.listen(3002, () => {
-    console.log('your app is now listening on port 3002');
+    console.log('HOST', HOST);
 });

@@ -4,13 +4,14 @@ import * as React from "react";
 export interface IProps {
     label: string;
     name: string;
-    type: string;
+    type?: string;
     value?: string;
     formik?: any;
 };
 
-const TextField = memo<IProps>(({label ,name, type, value, formik}) => {
+export const TextField = memo<IProps>(({label ,name, type, value, formik}) => {
     value = formik ? formik.values[name] : value;
+    type = type ? type : "text";
     const error = formik.errors[name];
     return (
         <>
@@ -33,4 +34,3 @@ const TextField = memo<IProps>(({label ,name, type, value, formik}) => {
         </>
     )
 })
-export default TextField;
