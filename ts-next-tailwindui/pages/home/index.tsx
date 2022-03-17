@@ -4,11 +4,11 @@ import MasterLayout from "layouts/MasterLayout";
 export interface IProps {
 }
 
-const HomePage: React.FunctionComponent<IProps> = () => {
+const Index: React.FunctionComponent<IProps> = () => {
     return (<MasterLayout>
-        <p className="text-[#ccc] text-black">
-            src/pages/HomePage.js
+        <p className="text-[#ccc] ">
+            src/pages/home/index.tsx
         </p>
     </MasterLayout>)
 }
-export default HomePage
+export default Index
