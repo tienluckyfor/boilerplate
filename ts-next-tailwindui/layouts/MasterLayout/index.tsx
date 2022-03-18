@@ -1,7 +1,7 @@
 import Header from "./components/Header";
 import React from "react";
 
-const MasterLayout: React.FC<{}> = ({children}) => {
+export const MasterLayout: React.FC<{}> = ({children}) => {
     return (
         <>
             <Header/>
@@ -10,4 +10,3 @@ const MasterLayout: React.FC<{}> = ({children}) => {
     )
 }
 
-export default MasterLayout

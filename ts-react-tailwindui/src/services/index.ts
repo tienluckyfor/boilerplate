@@ -1,2 +1,4 @@
-export {apolloClient} from "./apolloClient";
-export {resfulClient} from "./resfulClient";
+export * from "./apolloClient"
+export * from "./resfulClient"
+export * from "./reduxToolkit"
+export * from "./get"
