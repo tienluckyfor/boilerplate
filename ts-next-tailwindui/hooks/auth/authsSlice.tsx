@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { _slice } from "src/services/reduxToolkit"
-import { apolloClient } from "src/services"
+import { _slice } from "services/reduxToolkit"
+import { apolloClient } from "services"
 import gql from "graphql-tag"
 import Cookies from "universal-cookie"
 const cookies = new Cookies()
@@ -73,7 +73,7 @@ export function authRegister(variables:any) {
             await mutationAPI().then(res => {
                 const data = res?.data?.register;
                 if(data?.tokens?.access_token){
-                    cookies.set(`${process.env.REACT_APP_NAME}-token`,
+                    cookies.set(`${process.env.NEXT_PUBLIC_NAME}-token`,
                         data?.tokens?.access_token,
                 { path: '/', expires: new Date(Date.now() + 99999999999) });
                     // return window.location.assign('/');

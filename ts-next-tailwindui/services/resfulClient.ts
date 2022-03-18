@@ -12,13 +12,14 @@ export class resfulClient extends Component {
     }
 
     static _error_handle(err: { response: { data: { message: any; }; }; }) {
-        alert(err?.response?.data?.message)
+        console.log('err?.response?.data', err?.response?.data)
+        // alert(err?.response?.data?.message)
         // return err?.response?.data
     }
 
     static async delete(endpoint: string, params = {}) {
         const config = {...this._get_config(), ...{params: params}}
-        return await axios.delete(`${process.env.REACT_APP_URL}${endpoint}`, config).then(res => {
+        return await axios.delete(`${process.env.NEXT_PUBLIC_RESTFUL_URL}${endpoint}`, config).then(res => {
             return {
                 status: true,
                 data: res.data,
@@ -30,7 +31,7 @@ export class resfulClient extends Component {
 
     static async get(endpoint: string, params = {}) {
         const config = {...this._get_config(), ...{params: params}}
-        return await axios.get(`${process.env.REACT_APP_URL}${endpoint}`, config).then(res => {
+        return await axios.get(`${process.env.NEXT_PUBLIC_RESTFUL_URL}${endpoint}`, config).then(res => {
             return {
                 status: true,
                 data: res.data,
@@ -42,7 +43,7 @@ export class resfulClient extends Component {
 
     static async post(endpoint: string, params = {}) {
         const config = {...this._get_config(), ...{params: params}}
-        return await axios.post(`${process.env.REACT_APP_URL}${endpoint}`, params, config).then(res => {
+        return await axios.post(`${process.env.NEXT_PUBLIC_RESTFUL_URL}${endpoint}`, params, config).then(res => {
             console.log('post', res)
             return {
                 status: true,
@@ -56,7 +57,7 @@ export class resfulClient extends Component {
     static postSync(endpoint: string, params = {}) {
         return new Promise((resolve, reject) => {
             const config = {...this._get_config(), ...{params: params}}
-            axios.post(`${process.env.REACT_APP_URL}${endpoint}`, params, config).then(res => {
+            axios.post(`${process.env.NEXT_PUBLIC_RESTFUL_URL}${endpoint}`, params, config).then(res => {
                 resolve ({
                     status: true,
                     data: res.data,

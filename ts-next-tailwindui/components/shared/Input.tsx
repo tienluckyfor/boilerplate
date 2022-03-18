@@ -1,10 +1,11 @@
 import {memo} from "react";
 import * as React from "react";
+import classNames from "classnames";
 
 interface InputProps {
     label?: string;
     name?: string;
-    type?: 'email' | 'text' | 'tel' | 'number'|'password';
+    type?: 'email' | 'text' | 'tel' | 'number' | 'password';
     required?: boolean;
     value?: string;
     formik?: any;
@@ -13,7 +14,7 @@ interface InputProps {
 export const Input = memo<InputProps>(({label, name, type, required, value, formik}: InputProps) => {
     type = type ?? 'text'
     value = formik ? formik.values[name] : value;
-    const error = formik.errors[name];
+    const isError = formik.errors[name];
 
     return (<div className="space-y-1">
         {label &&
@@ -32,11 +33,11 @@ export const Input = memo<InputProps>(({label, name, type, required, value, form
                 name={name}
                 type={type}
                 // required={required}
-                className="appearance-none block w-full px-3 py-2.5 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                className={classNames('input', isError ? 'border-red-400' : '')}
             />
         </div>
-        {error &&
-        <p className="text-sm text-red-500 capitalize-first">{error}</p>
+        {isError &&
+            <p className="text-sm text-red-500 capitalize-first">{isError}</p>
         }
     </div>)
 })

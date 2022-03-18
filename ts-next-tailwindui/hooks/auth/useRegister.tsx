@@ -1,7 +1,7 @@
 import {useFormik} from "formik";
 import * as yup from "yup";
 import {authRegister} from "./authsSlice";
-import { useDispatch,  } from "react-redux";
+import { useDispatch} from "react-redux";
 
 const useRegister = () => {
     const dispatch = useDispatch()
@@ -34,8 +34,8 @@ const useRegister = () => {
                 .oneOf([yup.ref("password"), null], "Passwords must match")
         }),
         onSubmit: async (values, formik) => {
-            console.log('values', values)
-            dispatch(authRegister(values))
+            await dispatch(authRegister(values));
+            formik.setSubmitting(false);
         },
     });
     return formik;
